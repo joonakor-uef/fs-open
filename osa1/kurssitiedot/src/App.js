@@ -19,12 +19,10 @@ const App = () => {
 };
 
 const Header = (props) => {
-  console.log(props);
   return <h1>{props.course}</h1>;
 };
 
 const Content = (props) => {
-  console.log(props);
   return (
     <div>
       <Part part={part1} exercise={exercises1} />
@@ -35,7 +33,6 @@ const Content = (props) => {
 };
 
 const Total = (props) => {
-  console.log(props);
   return <p>Number of exercises {props.total}</p>;
 };
 
