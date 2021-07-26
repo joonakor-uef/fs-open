@@ -13,6 +13,10 @@ function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  let total = good + neutral + bad
+  let average = ((good * 1) + (bad * -1)) / total;
+  let percentGood = (good / total) * 100;
+
   return (
     <>
       <div>
@@ -23,9 +27,12 @@ function App() {
       </div>
       <div>
         <h1>Tilastot</h1>
-        <p>Hyvä {good}</p>  
-        <p>Neutraali {neutral}</p>  
-        <p>Huono {bad}</p>  
+        <p>Hyvä {good}</p>
+        <p>Neutraali {neutral}</p>
+        <p>Huono {bad}</p>
+        <p>Yhteensä {total}</p>
+        <p>Keskiarvo {average}</p>
+        <p>Positiivisia {percentGood}%</p>
       </div>
     </>
   );
