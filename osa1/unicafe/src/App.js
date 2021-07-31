@@ -16,6 +16,14 @@ const Statistics = (props) => {
   let average = ((good * 1) + (bad * -1)) / total;
   let percentGood = (good / total) * 100;
 
+  if (good === 0 && neutral === 0 && bad === 0) {
+    return (
+      <h2>
+        Palautetta ei ole annettu.
+      </h2>
+    )
+  }
+
   return(
     <div>
       <h1>Tilastot</h1>
@@ -30,9 +38,6 @@ const Statistics = (props) => {
 }
 
 function App() {
-  /* const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0); */
   const [feedback, setFeedback] = useState({
     good: 0,
     neutral: 0,
