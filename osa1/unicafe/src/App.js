@@ -8,6 +8,16 @@ const Button = (props) => {
   )
 }
 
+const StatisticsLine = ({text, value}) => {
+  return(
+    <div>
+      <p>
+        {text} {value}
+      </p>
+    </div>
+  )
+}
+
 const Statistics = (props) => {
   let good = props.feedback.good;
   let neutral = props.feedback.neutral;
@@ -27,12 +37,12 @@ const Statistics = (props) => {
   return(
     <div>
       <h1>Tilastot</h1>
-        <p>Hyvä {good}</p>
-        <p>Neutraali {neutral}</p>
-        <p>Huono {bad}</p>
-        <p>Yhteensä {total}</p>
-        <p>Keskiarvo {average}</p>
-        <p>Positiivisia {percentGood}%</p>
+      <StatisticsLine text="Hyvä: " value={good} />
+      <StatisticsLine text="Neutraali: " value={neutral} />
+      <StatisticsLine text="Huono: " value={bad} />
+      <StatisticsLine text="Yhteensä: " value={total} />
+      <StatisticsLine text="Keskiarvo: " value={average} />
+      <StatisticsLine text="Prosenttia hyviä: " value={percentGood} />
     </div>
     )
 }
