@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Button = (props) => {
-  return(
+  return (
     <button onClick={props.clickHandler}>
       {props.text}
     </button>
@@ -34,15 +34,49 @@ const Statistics = (props) => {
     )
   }
 
-  return(
+  return (
     <div>
-      <h1>Tilastot</h1>
-      <StatisticsLine text="Hyvä: " value={good} />
-      <StatisticsLine text="Neutraali: " value={neutral} />
-      <StatisticsLine text="Huono: " value={bad} />
-      <StatisticsLine text="Yhteensä: " value={total} />
-      <StatisticsLine text="Keskiarvo: " value={average} />
-      <StatisticsLine text="Prosenttia hyviä: " value={percentGood} />
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <h1>Tilastot</h1>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <StatisticsLine text="Hyvä: " value={good} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticsLine text="Neutraali: " value={neutral} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticsLine text="Huono: " value={bad} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticsLine text="Yhteensä: " value={total} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticsLine text="Keskiarvo: " value={average} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticsLine text="Prosenttia hyviä: " value={percentGood} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     )
 }
