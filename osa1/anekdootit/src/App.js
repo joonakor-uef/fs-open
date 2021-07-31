@@ -12,13 +12,25 @@ const App = () => {
   ]
 
   const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length));
+  const [votes, setAllVotes] = useState(Array(anecdotes.length).fill(0));
+  
+  const clickHandlerVote = () => {
+    const votesCopy = {...votes};
+    votesCopy[selected] += 1;
+    setAllVotes(votesCopy);
+    console.log(votesCopy);
+  }
 
   return (
     <>
       <p>
         {anecdotes[selected]}
       </p>
+      <p>
+        Ääniä: {votes[selected]}
+      </p>
       <button onClick={() => setSelected(Math.floor(Math.random() * anecdotes.length))}>Seuraava anekdootti</button>
+      <button onClick={() => clickHandlerVote()}>Äänestä</button>
     </>
   );
 }
