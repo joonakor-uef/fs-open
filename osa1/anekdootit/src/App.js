@@ -13,16 +13,25 @@ const App = () => {
 
   const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length));
   const [votes, setAllVotes] = useState(Array(anecdotes.length).fill(0));
+  let mostVotedAnecdote = '';
   
   const clickHandlerVote = () => {
     const votesCopy = {...votes};
     votesCopy[selected] += 1;
     setAllVotes(votesCopy);
+    const mostVotes = Math.max(...votesCopy)
+    for (let i = 0; i < votesCopy.length; i++) {
+      const element = votesCopy[i];
+      if (element > votesCopy[i - 1]) {
+        mostVotedAnecdote = element;
+      }
+    }
     console.log(votesCopy);
   }
 
   return (
     <>
+      <h1>Päivän anekdootti</h1>
       <p>
         {anecdotes[selected]}
       </p>
@@ -31,6 +40,10 @@ const App = () => {
       </p>
       <button onClick={() => setSelected(Math.floor(Math.random() * anecdotes.length))}>Seuraava anekdootti</button>
       <button onClick={() => clickHandlerVote()}>Äänestä</button>
+      <h1>Eniten ääniä saanut anekdootti</h1>
+      <p>
+        {mostVotedAnecdote}
+      </p>
     </>
   );
 }
