@@ -19,14 +19,8 @@ const App = () => {
     const votesCopy = {...votes};
     votesCopy[selected] += 1;
     setAllVotes(votesCopy);
-    const mostVotes = Math.max(...votesCopy)
-    for (let i = 0; i < votesCopy.length; i++) {
-      const element = votesCopy[i];
-      if (element > votesCopy[i - 1]) {
-        mostVotedAnecdote = element;
-      }
-    }
     console.log(votesCopy);
+    mostVotedAnecdote = anecdotes[Math.max(votesCopy)];
   }
 
   return (
