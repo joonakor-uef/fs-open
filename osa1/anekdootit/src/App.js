@@ -13,14 +13,16 @@ const App = () => {
 
   const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length));
   const [votes, setAllVotes] = useState(Array(anecdotes.length).fill(0));
-  let mostVotedAnecdote = '';
+  const [mostVoted, setMostVoted] = useState(0);
   
   const clickHandlerVote = () => {
     const votesCopy = {...votes};
     votesCopy[selected] += 1;
+    setMostVoted(Math.max({...votesCopy}));
     setAllVotes(votesCopy);
+    console.log(votes);
+    console.log(parseInt(mostVoted));
     console.log(votesCopy);
-    mostVotedAnecdote = anecdotes[Math.max(votesCopy)];
   }
 
   return (
@@ -36,7 +38,10 @@ const App = () => {
       <button onClick={() => clickHandlerVote()}>Äänestä</button>
       <h1>Eniten ääniä saanut anekdootti</h1>
       <p>
-        {mostVotedAnecdote}
+        {anecdotes[mostVoted]}
+      </p>
+      <p>
+        Ääniä: {votes[selected]}
       </p>
     </>
   );
