@@ -1,0 +1,9 @@
+title Uusi muistiinpano
+
+note over selain:
+selain lähettää HTTP POST-pyynnön
+end note
+
+selain->palvelin: HTTP: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+palvelin->selain: HTTP: 302
